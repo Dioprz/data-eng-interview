@@ -27,7 +27,7 @@ python3 py/validate_logos.py
 
 - **Modular Architecture**: Efficient and maintainable way to add new finders for different domains
 - **Strategy Pattern**: Flexible fetching techniques with HTTP/2 support and fallback to HTTP/1.1
-- **Advanced Scraping**: Support for curl-friendly pages and fake User-Agent techniques
+- **Scraping**: Support for curl-friendly pages and fake User-Agent techniques
 - **Logo Detection**: Multiple finder strategies including explicit logos, meta tags and SVG logos
 - **Validation Tools**: Metrics calculator for measuring precision and recall with a 20-domain test set
 
