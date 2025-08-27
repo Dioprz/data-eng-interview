@@ -18,12 +18,16 @@ in pkgs.mkShell rec {
                 # be parsimonious with 3rd party dependencies; better to show off your own code than someone else's
                 ipython
                 nose
-                requests
+
+                # HTML parsing
                 beautifulsoup4
                 lxml
+                urllib3
+                
+                # Fetching supprot
+                requests
                 httpx
                 h2
-                urllib3
             ];
         })
     ]);
