@@ -4,6 +4,62 @@ A technical interview project for data engineers.
 
 The objective is to write a python program that will collect as many logos as you can across across a sample of websites.
 
+## Implementation
+
+### How to Run
+
+**Targeted websites:**
+```bash
+echo "domain.com" | python3 py/logo_crawler.py
+```
+
+**From CSV:**
+```bash
+python3 py/logo_crawler.py < websites.csv
+```
+
+**Run Metrics:**
+```bash
+python3 py/validate_logos.py
+```
+
+### What's Implemented
+
+- **Modular Architecture**: Efficient and maintainable way to add new finders for different domains
+- **Strategy Pattern**: Flexible fetching techniques with HTTP/2 support and fallback to HTTP/1.1
+- **Advanced Scraping**: Support for curl-friendly pages and fake User-Agent techniques
+- **Logo Detection**: Multiple finder strategies including explicit logos, meta tags and SVG logos
+- **Validation Tools**: Metrics calculator for measuring precision and recall with a 20-domain test set
+
+### Test Set & Metrics
+
+The validation uses a randomly selected 20-domain test set from the websites list:
+```bash
+shuf -n 20 < websites.csv
+```
+
+**Current Performance**:
+```
+Total cases: 20
+True positives: 15
+False positives: 4
+False negatives: 0
+Not working sites: 1
+Precision: 78.95%
+Recall: 100.00%
+F1 Score: 88.24%
+```
+
+### Current Limitations
+
+**⚠️ Not Parallelized**: The current implementation processes domains sequentially. Adding concurrency via asyncio or Threads is straightforward but was prioritized below other features.
+
+**Production Considerations:**
+- CSS background logo extraction (currently only detection)
+- Unit tests and end-to-end testing
+- Improved error handling with failure type tracking
+- Headless browser strategies for JavaScript-heavy sites and WAF/CDN bypass
+
 
 # Objectives
 
